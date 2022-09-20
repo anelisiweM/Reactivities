@@ -12,7 +12,7 @@ namespace Application.Activities
     {
         public class Command : IRequest
         {
-            public Activity  Activity {get;set;}
+            public Activity?  Activity {get;set;}
 
             public class Handler : IRequestHandler<Command>
             {
@@ -24,7 +24,7 @@ namespace Application.Activities
 
                 public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
                 {
-                   _context.Activities.Add(request.Activity);
+                   _context.Activities.Add(request.Activity!);
                    await  _context.SaveChangesAsync();
                    return Unit.Value;
                 }
