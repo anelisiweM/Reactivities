@@ -8,9 +8,9 @@ const sleep = (delay: number) => {
 }
 
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:3000/';
 
-axios.interceptors.response.use(async response =>{
+axios.interceptors.response.use(async (response: any) =>{
  try{
  await sleep(1000);
         return response;
